@@ -55,7 +55,7 @@ module AuthlogicConnect::Common::User
     def save(options = {}, &block)
       self.errors.clear
       # log_state
-      options = {} if options == false
+      options = {} if options == false || options == true
       options[:validate] = true unless options.has_key?(:validate)
       save_options = ActiveRecord::VERSION::MAJOR < 3 ? options[:validate] : options
       
